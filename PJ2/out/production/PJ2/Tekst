@@ -1,0 +1,64 @@
+U zamišljenom gradu CoronaCity potrebno je simulirati rad sistema za nadzor stanovništva nakon pojave opasnog virusa JavaKov-20.
+Grad je predstavljen kvadratnom matricom čija dimenzija može imati najmanju vrijednost 15, a najveću 30 i određuje se slučajno
+prilikom generisanja same matrice. Stanovnici grada dijele se u tri grupe: djeca, odrasli i stari. Svakog stanovnika karakteriše
+jedinistveni identifikator, ime, prezime, godina rođenja i pol, kao i identifikator kuće u kojoj stanuju. Djeca su starosti
+od 0 do 18 godina, odrasli od 18 do 65 i stari 65+. Stanovnici žive u kućama. Svaka kuća ima jedinstveni identifikator i brojač
+koji prati trenutni broj ukućana. Djeca ne mogu biti sama u kući. Svaki stanovnik ima i tjelesnu temperaturu koja se generiše
+automatski i mijenja se na svakih 30 sekundi. Stanovnici imaju određen raspored kretanja dat u nastavku:
+ Odrasli mogu da se kreću u radijusu od 25% dimenzije matrice predstavljenim kao cijeli dio u bilo kom pravcu od kuće (gore, dole, lijevo ili desno).
+ Npr. ukoliko je dimenzija matrice 23, 25% te dimenzije iznosi 5.75, što znači da kretanje može da se obavi u radijusu od 6 polja u odnosu na kuću.
+ U slučaju da zbog pozicije kuće nije moguće otići na sve strane toliki broj polja, kretanje se mora kompenzovati u nekom drugom pravcu.
+ Npr. ukoliko stanovnik ne može da ode 6 polja u lijevu stranu, nego samo 3, onda može da ide desno za još 3 polja, tj. ukupno za 9 polja.
+ Stari mogu da se kreću samo u radijusu od 3 polja.
+ Djeca mogu da se kreću duž cijelog grada, bez dodatnih ograničenja.
+Prilikom kretanja potrebno je voditi računa i o tome da razmak između dva stanovnika uvijek mora da bude minimalno dva polja,
+osim izuzetka kada se radi o djetetu: dijete može da bude na manjem razmaku uz odraslu osobu ili drugo dijete. U slučaju
+da se kretanjem narušava razmak, stanovnik mijenja smjer kretanja. U toku kretanja, za svakog stanovnika se prikazuje
+njegovo ime spojeno sa jedinstvenim identifikatorom, na koju stranu se kreće i na kom polju se nalazi.
+U gradu se nalaze i kontrolni punktovi, koji očitavaju temperaturu stanovnika koji se u toku kretanja nalaze na udaljenosti
+od jednog polja ili na samom kontrolnom punktu. Ukoliko je vrijednost temperature iznad 37, tada se stanovnik zaustavlja
+i postavlja u stanje čekanja, dok po njega ne dođe ambulantno vozilo. Ambulantnim vozilima upravljaju nadzirači.
+Nadzirač je korisnik sistema za nadzor. Sistem za nadzor dobija alarm u kom se navodi na kojoj poziciji se nalazi zaražena osoba
+i identifikator kuće u koju je smješten. Alarmi se smještaju na stek,u slučaju da ih dođe više u isto vrijeme.
+Nadzirač, nakon prijema alarma, šalje ambulantno vozilo po zaraženu osobu i prekida kretanje osoba koje žive u istoj kući sa zaraženom osobom,
+uz obavještenje da se vrate kućama. Po prijemu obavještenja, stanovnici se najkraćim putem vraćaju u kuću i njima se zabranjuje kretanje do daljnjeg.
+Sam sistem za nadzor implementiran je kao GUI aplikacija.Prilikom pokretanja ove aplikacije u odgovarajuća polja se unosi broj stanovnika određenog tipa
+koje je potrebno kreirati (ime, prezime,godište i pol stanovnika se generišu na slučajan način), broj kuća, broj kontrolnih punktova i broj ambulantnih vozila.
+Klikom na dugme „START“ popunjava se matrica grada, pokreće se simulacija i prikazuje glavna forma aplikacije.
+Pod popunjavanjem matrice grada podrazumijeva se prvo kreiranje stanovnika, zatim kreiranje kuća,
+grupisanje stanovnika po kućama (algoritam grupisanja osmisliti samostalno, uz poštovanje uslova da djeca ne mogu biti sama u kući),
+raspoređivanje kuća na slučajne pozicije u matrici i raspoređivanje kontrolnih punktova na slučajne pozicije.
+Voditi računa o tome da su vanjske ivice matrice (prvi i posljednji red, kao i prva i posljednja kolona) rezervisani za smještanje
+ambulanti i da kuća i kontrolni punkt ne mogu da se nađu na istoj poziciji. Na početku simulacije kreiraju se četiri ambulante i smještaju u uglove matrice.
+Svaka ambulanta ima određen kapacitet koliko zaraženih može da primi i ovaj kapacitet se generiše kao slučajan broj u opsegu
+između 10 i 15% od ukupnog broja stanovnika. Podaci o broju zaraženih smještenih u ambulante upisuju
+se u dijeljeni fajl koji nadgleda FileWatcher. Izmjena ovog fajla utiče na prikaz broja zaraženih i
+oporavljenih na glavnoj formi aplikacije. U slučaju uspješnog oporavka stanovnika, koje se određuje u
+ambulanti na osnovu aritmetičke sredine tri posljednje vrijednosti temperature kod zaraženog
+stanovnika. Kada aritmetička sredina bude iznosila manje od 37, zaraženi se vraća kući i ažurira se stanje
+fajla sa brojem zaraženih. Na glavnoj formi aplikacije prikazuje se matrica grada, koja se dinamički mijenja kretanjem stanovnika.
+Informacije koje se odnose na kretanje stanovnika prikazuju se neposredno ispod same matrice. Iznad
+matrice se nalazi brojač na kom se automatski ažurira broj zaraženih i broj oporavljenih na osnovu fajla
+sa brojem zaraženih. Pored matrice, na glavnoj formi nalaze se i sljedeći dugmići:
+ „OMOGUĆI KRETANJE“ – koje inicira kretanje stanovnika na način kako je opisano na
+početku zadatka.
+ „POŠALJI AMBULANTNO VOZILO“ – kojim se, po prijemu alarma sa kontrolnog punkta,
+prosljeđuje vozilo ili vozila (u zavisnosti od toga da li se na steku alarma nalazi jedan ili više)
+na odgovarajuće koordinate matrice kako bi prevezlo(li) zaražene u ambulantu.
+ „PREGLEDAJ STANJE AMBULANTI“ – koje otvara novo prozor na kom se prikazuju podaci o
+tome koliko su ambulante popunjene i u slučaju da je kapacitet neke ambulante 0, nadzirač
+može klikom na dugme „KREIRAJ NOVU AMBULANTU“ koje se nalazi na ovom prozoru da
+kreiran novu ambulantu.
+ „PREGLEDAJ STATISTIČKE PODATKE“ – koje otvara novi prozor u kom se tabelarno (ili
+pomoću grafikona) prikazuju statistčki podaci o broju zaraženih, broju oporavljenih,
+statistika po vrsti stanovnika, statistika po polu i slično. Statistički izvještaji se mogu preuzeti
+sa ove forms u CSV formatu.
+ „ZAUSTAVI SIMULACIJU“ – koje serijalizuje matricu grada u fajl sa trenutnim stanjem u
+momentu iniciranja ove akcije.
+ „POKRENI SIMULACIJU PONOVO“ – koje deserijalizuje matricu grada i nastavlja simulaciju
+tamo gdje je stala.
+ „ZAVRŠI SIMULACIJU“ – kojima se simulacija trajno zaustavlja i gasi se aplikacija. Podaci o
+vremenu trajanja simulacije, broju kreiranih objekata po tipu, kao i statistički podaci o stanju
+stanovnika zaraženih virusom JavaKov-20 upisuju se u tekstualni fajl i čuvaju na fajl sistemu
+u fajlu imenovanim kao „SIM-JavaKov-20-trenutno_vrijeme_i_datum“.txt.
+Obavezno koristiti Logger klasu za obradu izuzetaka u svim klasama.

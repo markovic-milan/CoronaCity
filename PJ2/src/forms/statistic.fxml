@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatisticController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="132.0" text="Statistika" />
+            <ListView fx:id="statisticListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" />
+            <Region prefHeight="2.0" prefWidth="600.0" />
+            <TextField fx:id="textField" alignment="TOP_RIGHT" prefHeight="35.0" prefWidth="580.0" promptText="path">
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <Region prefHeight="11.0" prefWidth="580.0" />
+            <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="560.0" spacing="10.0">
+               <children>
+                  <Button fx:id="defaultButton" mnemonicParsing="false" onMouseClicked="#defaultButtonClicked" prefHeight="30.0" prefWidth="120.0" text="Default" />
+                  <Button fx:id="preuzmiButton" mnemonicParsing="false" onMouseClicked="#preuzmiButtonClicked" prefHeight="30.0" prefWidth="120.0" text="Preuzmi" textAlignment="CENTER" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,10 @@
+*Na polju kuće može se nalaziti više stanovnika te iste kuće.
+*Rastojanje mora biti minimum 2 polja u svim pravcima
+  11 12 13
+  21 22 23
+  31 32 33
+  Npr. izmedju pozicija (11) i (33) je samo jedno polje (22).
+*Broj osoba, kontrolnih puktova, kuća i ukućana može se ograničiti u zavisnosti od dimenzija matrice.
+*Dozvoljena je upotreba konkurentih kolekcija.
+*U informacijama o stanovništvu, koje trebaju da se ispišu ispod mape grada, treba da budu navedeni podaci o kretanju stanovnika (podaci o premještanju stanovnika na mapi) i događajima vezanim za određenog stanovnika.
+*Nije bitan redoslijed kreiranja stanovnika, kuća i kontrolnih punktova prilikom pokretanja aplikacije.

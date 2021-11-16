@@ -1,0 +1,8 @@
+Vrijeme trajanja 1.593243166135E9s
+Ambulantnih vozila kreirano 1
+Starih kreirano 1
+Odraslih kreirano 1
+Djece kreirano 1
+Punktova kreirano 1
+Ambulanti kreirano 4
+Kuca kreirano 1

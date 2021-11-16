@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StartController">
+   <children>
+      <VBox fx:id="hBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="180.0" spacing="10.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="33.0" prefWidth="210.0" text="Unesite parametre simulacije" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="brojDjeceTextField" maxHeight="1.7976931348623157E308" prefHeight="35.0" promptText="broj djece" />
+            <TextField fx:id="brojOdraslihTextField" prefHeight="35.0" promptText="broj odraslih" />
+            <TextField fx:id="brojStarihTextField" prefHeight="35.0" promptText="broj starih" />
+            <TextField fx:id="brojKucaTextField" prefHeight="35.0" promptText="broj kuca" />
+            <TextField fx:id="brojKontrolnihPunktovaTextField" prefHeight="35.0" promptText="broj kontrolnih punktova" />
+            <TextField fx:id="brojAmbulantnihVozilaTextField" prefHeight="35.0" promptText="broj ambulantnih vozila" />
+            <Region prefHeight="9.0" prefWidth="210.0" VBox.vgrow="ALWAYS" />
+            <Button fx:id="startButton" defaultButton="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="46.0" prefWidth="180.0" text="START" textAlignment="CENTER" textFill="#1a69f2" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

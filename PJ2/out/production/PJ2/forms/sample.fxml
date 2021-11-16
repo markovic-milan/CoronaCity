@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="960.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <VBox prefHeight="470.0" prefWidth="430.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <HBox prefHeight="20.0" prefWidth="397.0">
+               <children>
+                  <Label prefHeight="25.0" prefWidth="84.0" text="Broj zarazenih: " textAlignment="CENTER" textFill="RED" />
+                  <Label fx:id="brojZarazenihLabel" prefHeight="25.0" prefWidth="50.0" text="0" />
+                  <Region prefHeight="20.0" prefWidth="37.0" />
+                  <Label prefHeight="25.0" prefWidth="100.0" text="Broj oporavljenih:" textFill="#3700ff" />
+                  <Label fx:id="brojOporavljenihLabel" prefHeight="25.0" prefWidth="50.0" text="0" />
+               </children>
+            </HBox>
+            <GridPane fx:id="gridPane" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0">
+  
+      </GridPane>
+            <Region prefHeight="0.0" prefWidth="700.0" />
+            <ScrollPane prefHeight="130.0" prefWidth="700.0">
+              <content>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="130.0" prefWidth="700.0">
+                     <children>
+                        <TextArea fx:id="textArea" editable="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="130.0" prefWidth="700.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" layoutX="420.0" layoutY="20.0" prefHeight="570.0" prefWidth="192.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <Button fx:id="omoguciKretanjeButton" mnemonicParsing="false" onMouseClicked="#startButtonClicked" prefWidth="200.0" text="START" />
+            <Button fx:id="posaljiVoziloButton" mnemonicParsing="false" onMouseClicked="#sendAmbulanceButtonClicked" prefWidth="200.0" text="SEND AMBULANCE" />
+            <Button fx:id="pregledajAmbulanteButton" mnemonicParsing="false" onMouseClicked="#checkHospitalsClicked" prefWidth="200.0" text="CHECK HOSPITALS" />
+            <Button fx:id="pregledajStatistikuButton" mnemonicParsing="false" onMouseClicked="#pregledajStatistikuClicked" prefHeight="25.0" prefWidth="200.0" text="PREGLEDAJ STATISTIKU" />
+            <Button fx:id="zaustaviSimulacijuButton" mnemonicParsing="false" onMouseClicked="#pauzirajClicked" prefHeight="25.0" prefWidth="200.0" text="STOP" />
+            <Button fx:id="pokreniPonovoButton" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#pokreniPonovoClicked" prefHeight="25.0" prefWidth="200.0" text="RESTART" />
+            <Region prefHeight="339.0" prefWidth="200.0" />
+            <Button fx:id="zavrsiSimulacijuButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#zavrsiOnAction" prefHeight="40.0" prefWidth="200.0" text="EXIT" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
